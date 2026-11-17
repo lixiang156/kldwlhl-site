@@ -1,0 +1,129 @@
+:root {
+  --bg: #0a0c14;
+  --panel: rgba(19, 22, 34, 0.74);
+  --panel-strong: rgba(16, 19, 30, 0.92);
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #eef1f8;
+  --text-dim: rgba(238, 241, 248, 0.62);
+  --pink: #ff9ec7;
+  --blue: #8ad7ff;
+  --amber: #ffcf8a;
+  --radius: 18px;
+  --font: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+#app,
+.app {
+  position: fixed;
+  inset: 0;
+}
+
+.scene-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 50%, transparent 45%, rgba(6, 8, 16, 0.55) 100%);
+  z-index: 1;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+.glass {
+  background: var(--panel);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: scale(0.97);
+}
+
+.stats-host {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 26;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0.9;
+}
+
+.gui-host {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 26;
+}
+
+.gui-host .lil-gui {
+  --width: 248px;
+  --widget-height: 22px;
+  --font-size: 11px;
+  --background-color: rgba(16, 19, 30, 0.9);
+  --title-background-color: rgba(30, 34, 50, 0.95);
+  --text-color: #dfe4f0;
+  --widget-color: rgba(255, 255, 255, 0.08);
+  --hover-color: rgba(255, 255, 255, 0.14);
+  --focus-color: rgba(255, 255, 255, 0.2);
+  --number-color: #8ad7ff;
+  --string-color: #ff9ec7;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+}

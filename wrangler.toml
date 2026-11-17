@@ -1,0 +1,19 @@
+# Cloudflare Pages 部署配置示例
+# 用法：
+#   1. npm run build
+#   2. wrangler pages deploy dist --project-name=anime-bedroom
+#   3. 在 Cloudflare 控制台 → Pages → 项目 → Settings → Functions → KV namespace bindings
+#      绑定 BEDROOM_KV 到你的 KV 命名空间
+#
+# 本地模拟（含 KV）：
+#   npx wrangler kv namespace create BEDROOM_KV
+#   把返回的 id 填到下面，然后 npx wrangler pages dev dist
+
+name = "anime-bedroom"
+compatibility_date = "2025-01-01"
+
+# pages_build_output_dir = "dist"
+
+# [[kv_namespaces]]
+# binding = "BEDROOM_KV"
+# id = "你的 KV namespace id"
